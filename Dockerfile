@@ -1,4 +1,4 @@
-FROM linuxserver/sonarr:preview
+FROM hotio/sonarr:nightly
 
 RUN apt-get update && \
  apt-get install -y \
