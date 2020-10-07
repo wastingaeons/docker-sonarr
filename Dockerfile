@@ -4,7 +4,7 @@ COPY . /
 RUN apt-get update && \
  apt-get install -y \
         python3 python3-pip gcc python3-dev musl-dev python3-requests && \
-pip3 install --upgrade setuptools && pip3 install virtualenv && pip3 install -r /requirements.txt && python3 -m venv /venv --without-pip && \
+pip3 install --upgrade setuptools && pip3 install requests && pip3 install virtualenv && pip3 install -r /requirements.txt && python3 -m venv /venv --without-pip && \
 apt-get clean && \
  rm -rf \
         /tmp/* \
