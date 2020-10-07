@@ -13,6 +13,7 @@ pip3 install --upgrade setuptools && pip3 install virtualenv && pip3 install -r 
         /var/tmp/*
 
 FROM hotio/sonarr:nightly as img
-
+ENV PATH="/venv/bin:$PATH"
 COPY --from=base /venv /venv
+COPY --from=base /usr/local/lib/python3.8/dist-packages /venv/local/lib/python3.8/dist-packages
 COPY --from=base /usr/lib/python3/dist-packages /venv/lib/python3/dist-packages
