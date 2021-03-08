@@ -1,4 +1,4 @@
-FROM hotio/sonarr:nightly as base
+FROM hotio/sonarr:release as base
 ENV PATH="/venv/bin:$PATH"
 COPY . /
 RUN apt-get update && \
@@ -11,7 +11,7 @@ apt-get clean && \
         /var/lib/apt/lists/* \
         /var/tmp/*
 
-FROM hotio/sonarr:nightly as img
+FROM hotio/sonarr:release as img
 ENV PATH="/venv/bin:$PATH"
 RUN apt-get update && apt-get install -y mediainfo nano ffmpeg python3-requests && apt-get clean && \       
  rm -rf \
