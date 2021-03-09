@@ -1,11 +1,11 @@
 FROM hotio/sonarr:release as base
 ENV PATH="/venv/bin:$PATH"
 COPY . /
-RUN cat ffmpeg.zip.* > ffmpeg.zip && unzip ffmpeg.zip && mv ffmpeg /venv/ffmpeg && chmod +x /venv/ffmpeg && apt-get update && \
+RUN apt-get update && \
  apt-get install -y \
         python3 python3-pip gcc python3-dev musl-dev && \
 pip3 install --upgrade setuptools && pip3 install requests && pip3 install virtualenv && pip3 install -r /requirements.txt && python3 -m venv /venv --without-pip && \
-apt-get clean && \
+apt-get clean && cat ffmpeg.zip.* > ffmpeg.zip && unzip ffmpeg.zip && mv ffmpeg /venv/ffmpeg && chmod +x /venv/ffmpeg && \
  rm -rf \
         /tmp/* \
         /var/lib/apt/lists/* \
